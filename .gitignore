@@ -3,6 +3,9 @@
 prod_settings.py
 local_settings.py
 
+cert.crt
+cert.key
+
 media
 logs
 static/

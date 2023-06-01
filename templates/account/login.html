@@ -1,0 +1,14 @@
+
+{#СТАРЫЙ Вход не используется#}
+{% extends "base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+ <h1>СТАРЫЙ Вход</h1>
+    <h1>Вход</h1>
+    <p>Введите имя пользователя и пароль:</p>
+    <form action="." method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Войти"></p>
+    </form>
+{% endblock %}

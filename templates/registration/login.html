@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+    <h1>Новый вход в систему</h1>
+    {% if form.errors %}
+        <p>Ваше имя пользователя и пароль не совпадают. Повторите попытку.</p>
+    {% else %}
+        <p>Пожалуйста, используйте следующую форму для входа:</p>
+    {% endif %}
+    <div class="login-form">
+        <form action="{% url 'login' %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}"/>
+            <p><input type="submit" value="Войти"></p>
+        </form>
+    <p><a href="{% url "password_reset" %}">Забыли пароль?</a></p>
+    <p><a href="{% url "register" %}">Регитрация</a></p>
+    </div>
+    <div class="social">
+<ul>
+<li class="facebook"><a href="{% url "social:begin" "vk-oauth2" %}">
+VK</a></li>
+</ul>
+</div>
+{% endblock %}
